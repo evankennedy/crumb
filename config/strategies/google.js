@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var passport = require('passport'),
 	GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
 	config = require('../config'),

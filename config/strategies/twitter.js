@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var passport = require('passport'),
 	TwitterStrategy = require('passport-twitter').Strategy,
 	config = require('../config'),

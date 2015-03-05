@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var passport = require('passport'),
 	LinkedInStrategy = require('passport-linkedin').Strategy,
 	config = require('../config'),

@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 

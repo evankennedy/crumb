@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var _ = require('lodash');
 
 /**

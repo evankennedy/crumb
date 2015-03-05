@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var chalk = require('chalk'),
 	glob = require('glob');
 

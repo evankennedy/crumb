@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var passport = require('passport'),
 	User = require('mongoose').model('User'),
 	path = require('path'),

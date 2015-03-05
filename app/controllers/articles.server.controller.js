@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Article = mongoose.model('Article'),

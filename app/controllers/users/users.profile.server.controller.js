@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller.js'),
 	mongoose = require('mongoose'),

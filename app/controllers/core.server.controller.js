@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 exports.index = function(req, res) {
 	res.render('index', {
 		user: req.user || null,

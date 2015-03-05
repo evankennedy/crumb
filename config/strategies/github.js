@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var passport = require('passport'),
 	GithubStrategy = require('passport-github').Strategy,
 	config = require('../config'),

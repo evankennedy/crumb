@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 
 var morgan = require('morgan');
 var config = require('./config');

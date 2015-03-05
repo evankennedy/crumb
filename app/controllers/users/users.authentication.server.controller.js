@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+// Dependencies
 var errorHandler = require('../errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
