@@ -1,5 +1,5 @@
 // Dependencies
-var errorHandler = require('../errors.server.controller'),
+var errorHandler = require('../../../core/controllers/errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User');

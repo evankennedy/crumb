@@ -1,10 +1,10 @@
 // Dependencies
 var _ = require('lodash'),
-	errorHandler = require('../errors.server.controller'),
+	errorHandler = require('../../../core/controllers/errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
-	config = require('../../../config/config'),
+	config = require('../../../../config/config'),
 	nodemailer = require('nodemailer'),
 	async = require('async'),
 	crypto = require('crypto');

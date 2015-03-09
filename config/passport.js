@@ -27,7 +27,6 @@ module.exports = function() {
 	glob('./config/strategies/**/*.js', {sync: true}, function(err, files) {
 		if(!err) {
 			files.forEach(function(file) {
-				// TODO: Make sure this path is right
 				require(path.resolve(file))();
 			});
 		}

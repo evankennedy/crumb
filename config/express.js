@@ -11,23 +11,20 @@ var fs = require('fs'),
 	cookieParser = require('cookie-parser'),
 	helmet = require('helmet'),
 	passport = require('passport'),
-	mongoStore = require('connect-mongo')({
-		session: session
-	}),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+	glob = require('glob');
 
 module.exports = function(db) {
 	// Initialize express app
 	var app = express();
 
 	// Globbing model files
-	glob('./app/models/**/*.js', {sync: true}, function(err, files) {
+	glob('./modules/**/models/*.js', {sync: true}, function(err, files) {
 		if(!err) {
 			files.forEach(function(file) {
-				// TODO: Make sure this path is right
 				require(path.resolve(file));
 			});
 		}
@@ -62,7 +59,7 @@ module.exports = function(db) {
 
 	// Set views path and view engine
 	app.set('view engine', 'server.view.html');
-	app.set('views', './app/views');
+	app.set('views', './views');
 
 	// Enable logger (morgan)
 	app.use(morgan(logger.getLogFormat(), logger.getLogOptions()));
@@ -95,19 +92,6 @@ module.exports = function(db) {
 	// CookieParser should be above session
 	app.use(cookieParser());
 
-	// Express MongoDB session storage
-	app.use(session({
-		saveUninitialized: true,
-		resave: true,
-		secret: config.sessionSecret,
-		store: new mongoStore({
-			db: db.connection.db,
-			collection: config.sessionCollection
-		}),
-		cookie: config.sessionCookie,
-		name: config.sessionName
-	}));
-
 	// use passport session
 	app.use(passport.initialize());
 	app.use(passport.session());
@@ -116,10 +100,9 @@ module.exports = function(db) {
 	app.use(flash());
 
 	// Globbing routing files
-	glob('./app/routes/**/*.js', {sync: true}, function(err, files) {
+	glob('./modules/**/routes/*.js', {sync: true}, function(err, files) {
 		if(!err) {
 			files.forEach(function(file) {
-				// TODO: Make sure this path is right
 				require(path.resolve(file))(app);
 			});
 		}

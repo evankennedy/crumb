@@ -1,5 +1,5 @@
 // Dependencies
-var init = require('./app/init')(),
+var init = require('./config/init')(),
 	config = require('./config/config'),
 	chalk = require('chalk');
 

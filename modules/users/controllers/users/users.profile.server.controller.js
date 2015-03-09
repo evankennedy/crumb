@@ -1,6 +1,6 @@
 // Dependencies
 var _ = require('lodash'),
-	errorHandler = require('../errors.server.controller.js'),
+	errorHandler = require('../../../core/controllers/errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User');

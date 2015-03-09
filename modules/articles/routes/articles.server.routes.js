@@ -1,6 +1,6 @@
 // Dependencies
-var users = require('../../app/controllers/users.server.controller'),
-	articles = require('../../app/controllers/articles.server.controller');
+var users = require('../../users/controllers/users.server.controller'),
+	articles = require('../controllers/articles.server.controller');
 
 module.exports = function(app) {
 	// Article Routes
