@@ -2,9 +2,6 @@
 var chalk = require('chalk'),
 	glob = require('glob');
 
-/**
- * Module init function.
- */
 module.exports = function() {
 	glob('./config/env/' + process.env.NODE_ENV + '.js', {sync: true}, function(err, environmentFiles) {
 		if (!environmentFiles.length) {
