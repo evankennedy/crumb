@@ -1,9 +1,10 @@
 module.exports = {
+	port: process.env.PORT || 3001,
 	db: {
-		uri: 'mongodb://localhost/mean-dev',
+		uri: 'mongodb://ds033429.mongolab.com:33429/dev',
 		options: {
-			user: '',
-			pass: ''
+			user: 'evan',
+			pass: 'mypass'
 		}
 	},
 	log: {

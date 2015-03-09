@@ -1,23 +1,19 @@
 // Dependencies
-var fs = require('fs'),
-	http = require('http'),
-	https = require('https'),
-	express = require('express'),
-	morgan = require('morgan'),
-	logger = require('./logger'),
-	bodyParser = require('body-parser'),
+var bodyParser = require('body-parser'),
 	compression = require('compression'),
-	methodOverride = require('method-override'),
-	cookieParser = require('cookie-parser'),
-	helmet = require('helmet'),
-	passport = require('passport'),
-	flash = require('connect-flash'),
-	config = require('./config'),
 	consolidate = require('consolidate'),
-	path = require('path'),
-	glob = require('glob');
+	cookieParser = require('cookie-parser'),
+	express = require('express'),
+	flash = require('connect-flash'),
+	glob = require('glob'),
+	helmet = require('helmet'),
+	logger = require('./logger'),
+	methodOverride = require('method-override'),
+	morgan = require('morgan'),
+	passport = require('passport'),
+	path = require('path');
 
-module.exports = function(db) {
+module.exports = function(config, db) {
 	// Initialize express app
 	var app = express();
 
@@ -34,6 +30,28 @@ module.exports = function(db) {
 	app.locals.title = config.app.title;
 	app.locals.description = config.app.description;
 	app.locals.keywords = config.app.keywords;
+	app.locals.jsFiles = [];
+	app.locals.cssFiles = [];
+	
+	config.assets.lib.js.concat(config.assets.js).forEach(function(file) {
+		glob(file, {sync: true}, function(err, files) {
+			if(!err) {
+				files.forEach(function(file) {
+					app.locals.jsFiles.push(file);
+				});
+			}
+		});
+	});
+	
+	config.assets.lib.css.concat(config.assets.css).forEach(function(file) {
+		glob(file, {sync: true}, function(err, files) {
+			if(!err) {
+				files.forEach(function(file) {
+					app.locals.cssFiles.push(file);
+				});
+			}
+		});
+	});
 
 	// Passing the request url to environment locals
 	app.use(function(req, res, next) {
@@ -129,21 +147,6 @@ module.exports = function(db) {
 			error: 'Not Found'
 		});
 	});
-
-	if (process.env.NODE_ENV === 'secure') {
-		// Load SSL key and certificate
-		var privateKey = fs.readFileSync('./config/sslcerts/key.pem', 'utf8');
-		var certificate = fs.readFileSync('./config/sslcerts/cert.pem', 'utf8');
-
-		// Create HTTPS Server
-		var httpsServer = https.createServer({
-			key: privateKey,
-			cert: certificate
-		}, app);
-
-		// Return HTTPS server instance
-		return httpsServer;
-	}
 
 	// Return Express server instance
 	return app;

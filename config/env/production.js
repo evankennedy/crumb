@@ -1,9 +1,17 @@
 module.exports = {
+	port: process.env.PORT || 3000,
 	db: {
-		uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
+		uri: 'mongodb://ds033429.mongolab.com:33429/prod',
 		options: {
-			user: '',
-			pass: ''
+			user: 'evan',
+			pass: 'mypass'
+		}
+	},
+	secure: {
+		port: 443,
+		options: {
+			key: './config/sslcerts/key.pem',
+			cert: './config/sslcerts/cert.pem'
 		}
 	},
 	log: {
