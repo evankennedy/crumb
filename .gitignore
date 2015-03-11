@@ -35,5 +35,5 @@ public/dist/
 *.tmp
 *.bak
 *.swp
-logs/*
+logs/
 build/
