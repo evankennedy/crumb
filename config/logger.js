@@ -1,12 +1,8 @@
 // Dependencies
-
 var morgan = require('morgan');
 var config = require('./config');
 var fs = require('fs');
 
-/**
- * Module init function.
- */
 module.exports = {
 
 	getLogFormat: function() {

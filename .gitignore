@@ -16,7 +16,6 @@ app/tests/coverage/
 # MEAN.js app and assets
 # ======================
 config/sslcerts/*.pem
-access.log
 public/dist/
 
 # Sublime editor
@@ -36,5 +35,5 @@ public/dist/
 *.tmp
 *.bak
 *.swp
-logs/
+logs/*
 build/

@@ -37,7 +37,7 @@ module.exports = function(config, db) {
 		glob(file, {sync: true}, function(err, files) {
 			if(!err) {
 				files.forEach(function(file) {
-					app.locals.jsFiles.push(file);
+					app.locals.jsFiles.push(file.replace(/^public\//,''));
 				});
 			}
 		});
@@ -47,7 +47,7 @@ module.exports = function(config, db) {
 		glob(file, {sync: true}, function(err, files) {
 			if(!err) {
 				files.forEach(function(file) {
-					app.locals.cssFiles.push(file);
+					app.locals.cssFiles.push(file.replace(/^public\//,''));
 				});
 			}
 		});

@@ -4,6 +4,7 @@ module.exports = {
 		description: 'Node.js customer relationship management system.',
 		keywords: ''
 	},
+	port: process.env.PORT || 80,
 	templateEngine: 'swig',
 	// The secret should be set to a non-guessable string that
 	// is used to compute a session hash
@@ -19,15 +20,6 @@ module.exports = {
 	},
 	// The session cookie name
 	sessionName: 'connect.sid',
-	log: {
-		// Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
-		format: 'combined',
-		// Stream defaults to process.stdout
-		// Uncomment to enable logging to a log on the file system
-		options: {
-			stream: 'access.log'
-		}
-	},
 	assets: {
 		lib: {
 			css: [

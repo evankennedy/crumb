@@ -1,7 +1,7 @@
 module.exports = {
-	port: process.env.PORT || 3001,
+	port: process.env.PORT || 8080,
 	db: {
-		uri: 'mongodb://ds033429.mongolab.com:33429/dev',
+		uri: 'mongodb://ds033429.mongolab.com:33429/prod',
 		options: {
 			user: 'evan',
 			pass: 'mypass'
