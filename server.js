@@ -11,7 +11,7 @@ var init = require('./config/init')(),
 	app = require('./config/express')(config, db);
 	require('./config/passport')();
 
-// I'm listening... sheesh!
+// I'm listening! sheesh...
 http.createServer(app).listen(config.port);
 if(config.secure) https.createServer({
 	key: fs.readFileSync(config.secure.options.key, 'utf8'),
