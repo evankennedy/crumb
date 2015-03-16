@@ -86,17 +86,24 @@ module.exports = function(config, db) {
 	
 	// Load req.user
 	app.route('*').all(function(req, res, next) {
+		// if any roles have changed, we need to recreate the token from the database
+		// if user has a flag on them, we need to recreate the token from the database
+		// how to set flags? remember, we don't want to do db calls for each request. What if the app polls occasionally and puts it in local memory? That way multiple clusters will stay up to date with each other.
 		// Validate JWT
 		var jwt = {};
 		if(jwt.valid) {
 			if(jwt.expired) {
 				// Lookup in refresh token db (if exists, trust data)
-				// refresh token collection should be a hashed version of all token variables so if any change, it won't be able to find the token
+				// Generate new token and attach to headers
 				if(jwt.refresh_no_exist) return next();
-			} else if(jwt.expiring_soon) {
-				// Generate new token
+				// Attach new token headers
 			}
+			
 			// load user into req.user
+			
+			if(jwt.expiring_soon) {
+				// Generate new token and attach to headers
+			}
 		}
 		
 		return next();
