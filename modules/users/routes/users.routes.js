@@ -1,6 +1,6 @@
 // Dependencies
 var passport = require('passport'),
-	users = require('../controllers/users.server.controller');
+	users = require(finder('users.controller'));
 
 module.exports = function(app) {
 

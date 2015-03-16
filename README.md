@@ -1,7 +1,6 @@
 # crumb
 
 [![Build Status](https://magnum.travis-ci.com/evankennedy/crumb.svg?token=j2EUyV4NffFEMpYpieEx&branch=master)](https://magnum.travis-ci.com/evankennedy/crumb)
-[![Dependencies Status](https://david-dm.org/evankennedy/crumb.svg)](https://david-dm.org/evankennedy/crumb)
 
 Node.js customer relationship management system.
 

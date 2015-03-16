@@ -4,6 +4,9 @@ var fs = require('fs'),
 	https = require('https'),
 	chalk = require('chalk');
 
+// Init finder
+global.finder = require('./config/finder');
+
 // Init Database and Configure Express & Passport
 var init = require('./config/init')(),
 	config = require('./config/config'),

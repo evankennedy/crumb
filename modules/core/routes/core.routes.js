@@ -1,5 +1,5 @@
 module.exports = function(app) {
 	// Root routing
-	var core = require('../controllers/core.server.controller');
+	var core = require(finder('core.controller'));
 	app.route('/').get(core.index);
 };

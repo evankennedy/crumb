@@ -17,7 +17,10 @@ module.exports = {
 				// Make parent directories first
 				var current = '';
 				config.log.options.stream.split('/').slice(0, -1).forEach(function(dir) {
-					fs.mkdir((current += dir + '/'));
+					fs.mkdir((current += dir + '/'), function(err) {
+						if(['EEXIST'].indexOf(err.code) == -1)
+							console.error(err);
+					});
 				});
 				
 				options = {
