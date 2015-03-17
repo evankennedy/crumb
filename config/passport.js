@@ -24,11 +24,7 @@ module.exports = function() {
 	});
 
 	// Initialize strategies
-	glob('./config/strategies/**/*.js', {sync: true}, function(err, files) {
-		if(!err) {
-			files.forEach(function(file) {
-				require(path.resolve(file))();
-			});
-		}
+	glob.sync('./config/strategies/**/*.js').forEach(function(file) {
+		require(path.resolve(file))();
 	});
 };

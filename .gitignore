@@ -15,7 +15,7 @@ app/tests/coverage/
 
 # MEAN.js app and assets
 # ======================
-config/sslcerts/*.pem
+config/sslcerts/*
 public/dist/
 
 # Sublime editor

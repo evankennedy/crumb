@@ -13,14 +13,10 @@ module.exports.all = {};
 	module.exports[type] = function(file) {
 		return module.exports[type][file];
 	};
-	
-	glob('./modules/**/' + type + '/*.js', {sync: true}, function(err, files) {
-		if(!err) {
-			files.forEach(function(file) {
-				module.exports.all[file.split('/').slice(-1)[0].replace(/\.js$/,'')] = path.resolve(file);
-				module.exports[type][file.split('/').slice(-1)[0].replace(/\.js$/,'')] = path.resolve(file);
-			});
-		}
+
+	glob('./modules/**/' + type + '/*.js', {sync: true}).forEach(function(file) {
+		module.exports.all[file.split('/').slice(-1)[0].replace(/\.js$/,'')] = path.resolve(file);
+		module.exports[type][file.split('/').slice(-1)[0].replace(/\.js$/,'')] = path.resolve(file);
 	});
 });
 
