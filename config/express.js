@@ -82,7 +82,16 @@ module.exports = function(config, db) {
 		// if any roles have changed, we need to recreate the token from the database
 		// if user has a flag on them, we need to recreate the token from the database
 		// how to set flags? remember, we don't want to do db calls for each request. What if the app polls occasionally and puts it in local memory? That way multiple clusters will stay up to date with each other.
-		
+		/*
+		user = {
+			id: 120958,
+			name: "",
+			perm: "",
+			groups: [""],
+			ref: "refresh_token_rand",
+			exp: 10298412
+		}
+		*/
 		// load token (from header/cookie/query)
 		var token = jwt.encode({a:'bc'}, 'secret');
 		
